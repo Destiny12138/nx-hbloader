@@ -13,6 +13,10 @@ jobs:
     container: devkitpro/devkita64
 
     steps:
+      - name: setenv
+        run: |
+          export DEVKITPRO=/opt/devkitpro
+          export DEVKITARM=$DEVKITPRO/devkitARM
 #       - name: env
 #         run: |
 #           cat /proc/cpuinfo
