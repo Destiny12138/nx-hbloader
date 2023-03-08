@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define DEFAULT_NRO "sdmc:/hbmenu.nro"
+#define DEFAULT_NRO "sdmc:/switch/Moonlight-Switch.nro"
 
 const char g_noticeText[] =
     "nx-hbloader " VERSION "\0"
