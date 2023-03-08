@@ -13,11 +13,28 @@ jobs:
     container: devkitpro/devkita64
 
     steps:
-    - uses: actions/checkout@v3
-    - name: make
-      run: make
-    - name: store
-      uses: actions/upload-artifact@v3
-      with:
-        name: hbl.nsp
-        path: hbl.nsp
+      - name: env
+        run: |
+          cat /proc/cpuinfo
+          free -m
+      - name: checkout - project
+        uses: actions/checkout@v1
+        with:
+          submodules: recursive
+          fetch-depth: 1
+      - name: deps - libnx
+        run: |
+          git clone https://github.com/switchbrew/libnx.git /tmp/libnx
+          make -C /tmp/libnx install -j4
+      - name: deps - ams libs
+        run: |
+          make -C lib/ams/libstratosphere -j4
+          
+      - uses: actions/checkout@v3
+      - name: make
+        run: make
+      - name: store
+        uses: actions/upload-artifact@v3
+        with:
+          name: hbl.nsp
+          path: hbl.nsp
