@@ -13,11 +13,11 @@ jobs:
     container: devkitpro/devkita64
 
     steps:
-    - uses: actions/checkout@v3
+#     - uses: actions/checkout@v3
     - name: make
       run: make
-    
-    - uses: actions/upload-artifact@v3
+    - name: store
+      uses: actions/upload-artifact@v3
       with:
         name: sys-tweak.nsp
         path: out/sys-tweak.nsp
