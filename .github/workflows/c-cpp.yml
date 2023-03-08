@@ -19,5 +19,5 @@ jobs:
     - name: store
       uses: actions/upload-artifact@v3
       with:
-        name: sys-tweak.nsp
-        path: out/sys-tweak.nsp
+        name: hbl.nsp
+        path: out/hbl.nsp
